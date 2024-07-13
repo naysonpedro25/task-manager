@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    
+    <main class="main">
+        <h1>Lista de tarefas</h1>
+        <form  class="form">
+            <label for="add-todo">Escreva uma tarefa</label>
+            <div class="input-div">
+                <div class="inputs">
+                    <input type="text" name="add" id="add-todo" class="input_title" placeholder="Escreva um titulo">
+                    <input type="text" name="add" id="add-todo" class="input_desc" placeholder="Escreva um descrição (opcional)">
+                </div>
+                <button><ion-icon name="add-outline"></ion-icon></button>
+            </div>
+        </form>
+
+        <section class="list-todo">
+            <div class="loading"></div>
+            
+            <div class="todo  ex">
+                
+                <div class="loading-update-todo"></div>
+                <ion-icon name="checkmark-outline" class="btn_complet" ></ion-icon>
+                <p>1 - Fazer sexo</p>
+                <ion-icon class="btn_delete" name="trash-outline"></ion-icon>
+            </div>
+         
+        </section>
+    </main>
+    <script src="script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

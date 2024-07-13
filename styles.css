@@ -1,0 +1,151 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+
+body{
+    background: rgb(247, 57, 51);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 97vh;
+}
+
+.main{
+    background: #fff;
+    padding: 60px;
+    border-radius: 10px;
+    min-width: 40%;
+    max-height: 80%;
+}
+.main h1{
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.input-div{
+    display: flex;
+    margin-top: 10px;
+}
+.input-div input{
+    flex: 1;
+    padding: 10px;
+    font-size: 1.2rem;
+}
+
+.inputs{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 2px;
+}
+
+.input-div button{
+    padding-inline: 20px;
+    font-size: 20px;
+    color: #000;
+    background: rgb(0, 211, 0);
+    border: 1px solid black;
+    padding-top: 5px;
+
+}
+
+.list-todo{
+    border: 1px solid black;
+    min-height: 30vh;
+    margin-top: 10px;
+    border-radius:3px ;
+    padding: 10px;
+    position: relative;
+    overflow-y: scroll;
+    display: flex;
+    max-height: 300px;
+    flex-direction: column;
+}
+
+.list-todo > p{
+    position: absolute;
+    top: 50%;
+    align-self: center;
+    color: gray;
+    justify-self: center;
+}
+
+.loading{
+    border: 7px solid #b4b4b4; /* Light grey */
+    border-top: 7px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 30px;
+    position: absolute;
+    top: 40%;
+    height: 30px;
+    align-self: center;
+    animation: spin 1s linear infinite;
+  }
+
+.loading-update-todo{
+    border: 3px solid #b4b4b4; /* Light grey */
+    border-top: 3px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 30px;
+    position: absolute;
+    display: none;
+    height: 30px;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); 
+    }
+    100% {
+         transform: rotate(360deg); 
+        }
+  }
+
+ 
+
+.todo{
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    padding: 1px;
+    position: relative;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    box-shadow: 2px 2px black ;
+}
+.todo p{
+    flex: 1;
+    margin-block: 5px;
+    margin-left: 10px;
+
+}
+.btn_delete{
+    background-color: rgb(252, 19, 19);
+    color: #fff;
+    padding: 10px;
+    border-radius: 3px;
+}
+
+.btn_complet{
+    background-color: rgb(32, 55, 255);
+    color: #fff;
+    padding: 10px;
+    border-radius: 3px;
+}
+
+.ex {
+    display: none;
+}
+
+.completed-todo{
+    background-color: rgba(102, 102, 102, 0.5);
+}
+.completed-todo p{
+    text-decoration: line-through;
+}
