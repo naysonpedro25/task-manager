@@ -5,8 +5,45 @@
     const list = document.querySelector(".list-todo");
     const loading = document.querySelector(".loading");
     const loadingTodo = document.querySelector(".loading-update-todo");
+
     const inputTitle = document.querySelector('.input_title');
     const inputDesc = document.querySelector('.input_desc');
+
+    const inputSearch = document.querySelector('#pesquisa');
+    const btnSearch = document.querySelector(".btn-search");
+    const btnClose = document.querySelector(".btn-close");
+    const modal = document.querySelector("dialog");
+
+
+    (function () {
+        getAllToDos();
+        configModal();
+    })();
+
+    function configModal() {
+        btnSearch.onclick = (e) => {
+            const id = Number(inputSearch.value.trim());
+
+            if (isNaN(id) || id === 0) {
+                document.querySelector('.search-input-container').classList.add('search-input-container-error');
+                return;
+            }
+            getAllToDosOfUser(id);
+            modal.showModal();
+
+
+        }
+
+        btnClose.onclick = function () {
+            modal.close();
+        }
+
+        window.onclick = function (event) {
+            if (event.target === modal) {
+                modal.close();
+            }
+        }
+    }
 
     async function getAllToDos() {
         try {
@@ -24,15 +61,15 @@
                     newItem.querySelector('p').innerText = `Usuário: ${mItem.userId} - ${mItem.title} \n Descrição: Nenhuma`;
                     newItem.querySelector('.btn_delete');
                     newItem.classList.remove('ex')
-                    
-                    newItem.querySelector('.btn_complet').addEventListener("click", (e)=>{
+
+                    newItem.querySelector('.btn_complet').onclick = (e) => {
                         e.preventDefault();
                         updateTodo(mItem.id, {
                             completed: !mItem.completed
                         });
                         mItem.completed = !mItem.completed;
-                       newItem.classList.toggle("completed-todo")
-                    })
+                        newItem.classList.toggle("completed-todo")
+                    }
 
                     list.appendChild(newItem);
                 }
@@ -41,7 +78,6 @@
         } catch (error) {
             console.error('Erro no fetch: ', error);
         }
-
     }
 
 
@@ -56,11 +92,11 @@
                 },
                 body: JSON.stringify(body)
             });
-            
+
             if (!request.ok) {
                 throw new Error("erro da net")
             }
-            const data =  await request.json();
+            const data = await request.json();
             console.log(data);
             loadingTodo.style.display = "none"
         } catch (e) {
@@ -69,7 +105,14 @@
 
     }
 
-    getAllToDos();
+    // showModalResult()
+
+
+
+
+
+
+
 
 
 
@@ -77,12 +120,36 @@
 
     async function getAllToDosOfUser(userId) {
         try {
+            const listResult = document.querySelector('.list-result');
+            const loadingResult = document.querySelector('.loading-result');
+            loadingResult.style.display = "block"
+
             const request = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}/todos`)
             if (!request.ok) {
                 throw new Error("fifibfb")
             }
             const data = await request.json();
-            return data;
+
+            for (let i in data) {
+
+                const mItem = data[i];
+                const newItem = listItem.cloneNode(true);
+                newItem.querySelector('p').innerText = `Usuário: ${mItem.userId} - ${mItem.title} \n Descrição: Nenhuma`;
+                newItem.querySelector('.btn_delete');
+                newItem.classList.remove('ex')
+
+                newItem.querySelector('.btn_complet').onclick = (e) => {
+                    e.preventDefault();
+                    updateTodo(mItem.id, {
+                        completed: !mItem.completed
+                    });
+                    mItem.completed = !mItem.completed;
+                    newItem.classList.toggle("completed-todo")
+                }
+
+                listResult.appendChild(newItem);
+            }
+            loadingResult.style.display = "none"
         } catch (error) {
             console.error('Erro no fetch: ', error);
         }

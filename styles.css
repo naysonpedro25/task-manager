@@ -1,49 +1,79 @@
-*{
+* {
     font-family: Arial, Helvetica, sans-serif;
     list-style: none;
     margin: 0;
     padding: 0;
     outline: none;
+    text-decoration: none;
+    color: #000;
 }
 
-body{
+body {
     background: rgb(247, 57, 51);
     display: flex;
-    justify-content: center;
     align-items: center;
+    flex-direction: column;
     height: 97vh;
+    position: relative;
 }
 
-.main{
+.header-container {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    margin-bottom: 30px;
+}
+
+.header {
+    display: flex;
+    background-color: #fff;
+    padding: 20px 10px;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-inline: 40px;
+    justify-content: space-between;
+}
+
+
+.header .nav {
+    display: flex;
+    gap: 20px;
+    text-decoration: underline;
+}
+
+.main {
     background: #fff;
-    padding: 60px;
+    padding: 30px 60px;
     border-radius: 10px;
     min-width: 40%;
-    max-height: 80%;
+
 }
-.main h1{
+
+.main h1 {
     font-size: 3rem;
     margin-bottom: 20px;
 }
 
-.input-div{
+.input-div {
     display: flex;
     margin-top: 10px;
 }
-.input-div input{
+
+.input-div input {
     flex: 1;
     padding: 10px;
     font-size: 1.2rem;
 }
 
-.inputs{
+.inputs {
     display: flex;
     flex-direction: column;
     flex: 1;
     gap: 2px;
 }
 
-.input-div button{
+.input-div button {
     padding-inline: 20px;
     font-size: 20px;
     color: #000;
@@ -53,20 +83,20 @@ body{
 
 }
 
-.list-todo{
+.list-todo {
     border: 1px solid black;
     min-height: 30vh;
     margin-top: 10px;
-    border-radius:3px ;
+    border-radius: 3px;
     padding: 10px;
     position: relative;
     overflow-y: scroll;
     display: flex;
-    max-height: 300px;
     flex-direction: column;
+    max-height: 300px;
 }
 
-.list-todo > p{
+.list-todo>p {
     position: absolute;
     top: 50%;
     align-self: center;
@@ -74,9 +104,11 @@ body{
     justify-self: center;
 }
 
-.loading{
-    border: 7px solid #b4b4b4; /* Light grey */
-    border-top: 7px solid #3498db; /* Blue */
+.loading {
+    border: 7px solid #b4b4b4;
+    /* Light grey */
+    border-top: 7px solid #3498db;
+    /* Blue */
     border-radius: 50%;
     width: 30px;
     position: absolute;
@@ -84,30 +116,34 @@ body{
     height: 30px;
     align-self: center;
     animation: spin 1s linear infinite;
-  }
+}
 
-.loading-update-todo{
-    border: 3px solid #b4b4b4; /* Light grey */
-    border-top: 3px solid #3498db; /* Blue */
+.loading-update-todo {
+    border: 3px solid #b4b4b4;
+    /* Light grey */
+    border-top: 3px solid #3498db;
+    /* Blue */
     border-radius: 50%;
     width: 30px;
     position: absolute;
     display: none;
     height: 30px;
     animation: spin 1s linear infinite;
-  }
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); 
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
     }
+
     100% {
-         transform: rotate(360deg); 
-        }
-  }
+        transform: rotate(360deg);
+    }
+}
 
- 
 
-.todo{
+
+.todo {
     border: 1px solid black;
     display: flex;
     align-items: center;
@@ -117,22 +153,24 @@ body{
     position: relative;
     margin-bottom: 5px;
     border-radius: 5px;
-    box-shadow: 2px 2px black ;
+    box-shadow: 2px 2px black;
 }
-.todo p{
+
+.todo p {
     flex: 1;
     margin-block: 5px;
     margin-left: 10px;
 
 }
-.btn_delete{
+
+.btn_delete {
     background-color: rgb(252, 19, 19);
     color: #fff;
     padding: 10px;
     border-radius: 3px;
 }
 
-.btn_complet{
+.btn_complet {
     background-color: rgb(32, 55, 255);
     color: #fff;
     padding: 10px;
@@ -143,9 +181,111 @@ body{
     display: none;
 }
 
-.completed-todo{
+.completed-todo {
     background-color: rgba(102, 102, 102, 0.5);
 }
-.completed-todo p{
+
+.completed-todo p {
     text-decoration: line-through;
 }
+
+.search-input-container {
+    display: flex;
+}
+.search-input-container-error::after{
+    content: "Digite um valor válido";
+    position: absolute;
+    bottom: 3px;
+    font-size: 13px;
+    padding-left: 15px;
+    color: red;
+    font-weight: bold;    
+}
+
+.search-input-container input {
+    background-color: rgb(224, 224, 224);
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    border-radius: 20px 0 0 20px;
+    text-decoration: none;
+    font-size: 1rem;
+
+
+}
+
+.search-input-container .btn-search {
+    background-color: rgba(102, 102, 102, 0.5);
+    color: #fff;
+    border-radius: 0 20px 20px 0;
+    height: 100%;
+    padding-inline: 15px;
+    font-size: 20px;
+    border: none;
+}
+
+.btn-search .search-icon {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-top: 5px;
+}
+
+.modal-new {
+    align-self: center;
+    margin: auto;
+    width: 65%;
+    border: none;
+    border-radius: 10px;
+    animation: slideIn .5s;
+
+}
+
+.modal-content{
+    max-width: 100%;
+    height: 100%;
+    padding: 30px;
+}
+@keyframes slideIn {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+
+.btn-close {
+    background-color: #f54040;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 25px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 5px;
+}
+
+.modal-new::backdrop {
+    background-color: hsla(0, 0%, 0%, 0.5);
+    animation: fadeIn .5s;
+}
+
+.list-result{
+
+    border: 1px solid black;
+    margin-top: 10px;
+    border-radius: 3px;
+    padding: 10px;
+    position: relative;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    min-height: 100px;
+    max-height: 50vh;
+
+}
+
+
