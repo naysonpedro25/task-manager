@@ -100,7 +100,7 @@
             const data = await request.json();
 
             for (let i in data) {
-                if (i < 10) {
+               
                     const mItem = data[i];
                     const newItem = listItem.cloneNode(true);
                     newItem.querySelector('p').innerText = `Usuário: ${mItem.userId} - ${mItem.title} \n Descrição: Nenhuma`;
@@ -124,7 +124,7 @@
                         console.log(Array.from(list.querySelectorAll('.todo')).length);
                     }
                     list.appendChild(newItem);
-                }
+                
             }
 
             if (Array.from(list.querySelectorAll('.todo')).length === 1) { list.querySelector('.no-todos').style.display = "block" }
