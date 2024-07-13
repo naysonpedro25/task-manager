@@ -46,7 +46,8 @@ body {
     background: #fff;
     padding: 30px 60px;
     border-radius: 10px;
-    min-width: 40%;
+    width: 50%;
+
 
 }
 
@@ -73,14 +74,38 @@ body {
     gap: 2px;
 }
 
-.input-div button {
+.error-inputs{
+    margin-top: 10px;
+    display: none;
+    color: red;
+    font-weight: bold;
+}
+
+.input-div .btn-add {
     padding-inline: 20px;
     font-size: 20px;
     color: #000;
     background: rgb(0, 211, 0);
     border: 1px solid black;
     padding-top: 5px;
+    position: relative;
 
+}
+
+.loading-btn{
+    display: none;
+    border: 4px solid #ffffff;
+    /* Light grey */
+    visibility: visible;
+    border-top: 4px solid #3498db;
+    /* Blue */
+    border-radius: 50%;
+    width: 15px;
+    position: absolute;
+    top: 44%;
+    height: 15px;
+    align-self: center;
+    animation: spin .7s linear infinite;
 }
 
 .list-todo {
@@ -96,7 +121,8 @@ body {
     max-height: 300px;
 }
 
-.list-todo>p {
+.list-todo > p {
+    display: none;
     position: absolute;
     top: 50%;
     align-self: center;
@@ -211,7 +237,10 @@ body {
     text-decoration: none;
     font-size: 1rem;
 
+}
 
+.search-input-container input::placeholder{
+    font-size: .78rem;
 }
 
 .search-input-container .btn-search {
@@ -287,5 +316,7 @@ body {
     max-height: 50vh;
 
 }
+
+
 
 

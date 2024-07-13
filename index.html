@@ -13,7 +13,7 @@
         <header class="header">
             <h1>YouToDo</h1>
             <ul class="nav">
-                <li class="search-input-container"><input style="text-decoration: none;" placeholder="Digite o id do usuário" type="text" name=""
+                <li class="search-input-container"><input style="text-decoration: none;" placeholder="Digite o id do usuário entre 1 e 200" type="text" name=""
                         id="pesquisa">
                     <button class="btn-search"> <ion-icon class="search-icon" name="search-outline"></ion-icon></button>
                 </li>
@@ -31,13 +31,14 @@
                     <input type="text" name="add" id="add-todo" class="input_desc"
                         placeholder="Escreva um descrição (opcional)">
                 </div>
-                <button><ion-icon name="add-outline"></ion-icon></button>
+                <button class="btn-add"><ion-icon name="add-outline" class="ic-btn-add"></ion-icon><div class="loading-btn"></div></button>
             </div>
+            <p class="error-inputs">Preencha os dois campos para adicionar uma nova tarefa</p>
         </form>
 
         <section class="list-todo">
             <div class="loading"></div>
-
+            <p class="no-todos">Sem tarefas</p>
             <div class="todo  ex">
 
                 <div class="loading-update-todo"></div>
